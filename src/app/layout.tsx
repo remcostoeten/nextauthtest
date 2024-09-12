@@ -1,3 +1,5 @@
+import Header from "@/components/base/layout/header";
+import ProviderWrapper from "@/components/base/ProviderWrapper";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -26,9 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-neutral-950 min-h-screen flex flex-col sans-serif`}
       >
-        {children}
+        <ProviderWrapper>
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+        </ProviderWrapper>
       </body>
     </html>
   );
